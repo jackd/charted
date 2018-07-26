@@ -14,7 +14,7 @@ typedef bool FilterFunction(dynamic value);
 /// of data will be tested by passing the value at target column to the filter
 /// function.  If filter function returns false, the row will be filtered out.
 /// This transformer does not modify the column part of the input ChartData.
-class FilterTransformer extends Observable
+class FilterTransformer extends ChangeNotifier
     implements ChartDataTransform, ChartData {
   final SubscriptionsDisposer _dataSubscriptions = new SubscriptionsDisposer();
   Iterable<ChartColumnSpec> columns;

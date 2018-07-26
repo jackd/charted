@@ -63,11 +63,11 @@ main() {
           '${max(0, (d.dx as int) - 1)}px')
       ..styleWithCallback('height', (d, i, e) =>
           '${max(0, (d.dy as int) - 1)}px')
-      ..styleWithCallback('background', (TreeMapNode d, i, e) =>
-          d.children.isNotEmpty ?
+      ..styleWithCallback('background', (d, i, e) =>
+          d.children.isNotEmpty as bool ?
           theme.getColorForKey(d.label, ChartTheme.STATE_NORMAL) : null)
-      ..textWithCallback((TreeMapNode d, i, e) => d.children.isNotEmpty ?
-          null : d.label)
+      ..textWithCallback((d, i, e) => d.children.isNotEmpty as bool ?
+          null : d.label as String)
       ..classed('node');
 
    }

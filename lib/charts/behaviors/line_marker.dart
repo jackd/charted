@@ -11,7 +11,7 @@ part of charted.charts;
 /// A behavior that draws marking lines on the chart.
 class LineMarker implements ChartBehavior {
   /// Position of the line markers.
-  final Map<int, dynamic> positions;
+  final Map<int, Comparable> positions;
 
   /// If true, the markers are drawn above the series
   final bool drawAboveSeries;

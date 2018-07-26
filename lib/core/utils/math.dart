@@ -8,13 +8,13 @@
 
 part of charted.core.utils;
 
-/// Mathematical constant PI
-const double PI = math.PI;
+/// Mathematical constantpi
+const double PI = math.pi;
 
-/// PI * 0.5
+///pi * 0.5
 const double HALF_PI = PI / 2.0;
 
-/// PI * 2
+///pi * 2
 /// Ratio constant of a circle's circumference to radius
 const double TAU = PI * 2.0;
 
@@ -42,7 +42,7 @@ num sinh(num x) => ((x = math.exp(x)) - 1 / x) / 2;
 num tanh(num x) => ((x = math.exp(2 * x)) - 1) / (x + 1);
 
 /// Converts [degrees] to radians.
-num toRadians(num degrees) => degrees * math.PI / 180.0;
+num toRadians(num degrees) => degrees * math.pi / 180.0;
 
 /// Converts [radians] to degrees.
-num toDegrees(num radians) => radians * 180.0 / math.PI;
+num toDegrees(num radians) => radians * 180.0 / math.pi;

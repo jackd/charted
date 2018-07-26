@@ -8,7 +8,7 @@
 
 part of charted.charts;
 
-class DefaultChartSeriesImpl extends Observable implements ChartSeries {
+class DefaultChartSeriesImpl extends ChangeNotifier implements ChartSeries {
   final String name;
 
   Iterable<String> _measureAxisIds;
