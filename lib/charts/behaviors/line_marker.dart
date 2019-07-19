@@ -96,7 +96,7 @@ class LineMarker implements ChartBehavior {
     _markers = _parent.selectAll('.line-marker').data(positions.keys);
 
     _markers.enter.append('path').each((_d, i, e) {
-      int d = _d;
+      int d = _d as int;
       e.classes.add('line-marker');
       e.attributes['d'] = _getMarkerPath(d, animate);
     });

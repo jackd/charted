@@ -234,7 +234,7 @@ class RotateHorizontalAxisTicks implements SvgAxisTicks {
     formattedTicks = ticks.map((x) => axis.tickFormat(x)).toList();
     shortenedTicks = formattedTicks;
 
-    Extent<num> range = axis.scale.rangeExtent;
+    Extent<num> range = axis.scale.rangeExtent as Extent<num>;
     var textMetrics = new TextMetrics(fontStyle: ticksFont);
     num allowedWidth = (range.max - range.min) ~/ ticks.length,
         maxLabelWidth = textMetrics.getLongestTextWidth(formattedTicks);

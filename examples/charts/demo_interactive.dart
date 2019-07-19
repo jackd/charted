@@ -68,16 +68,16 @@ main() {
    * Create and hook up the control panel
    */
 
-  ButtonElement addRowButton = querySelector('#add-row'),
-      removeRowButton = querySelector('#remove-row'),
-      addSeriesButton = querySelector('#add-series'),
-      removeSeriesButton = querySelector('#remove-series');
+  ButtonElement addRowButton = querySelector('#add-row') as ButtonElement,
+      removeRowButton = querySelector('#remove-row') as ButtonElement,
+      addSeriesButton = querySelector('#add-series') as ButtonElement,
+      removeSeriesButton = querySelector('#remove-series') as ButtonElement;
 
-  InputElement useRTLScriptCheckBox = querySelector('#rtl-use-script'),
-      useRTLLayoutCheckBox = querySelector('#rtl-use-layout');
+  InputElement useRTLScriptCheckBox = querySelector('#rtl-use-script') as InputElement,
+      useRTLLayoutCheckBox = querySelector('#rtl-use-layout') as InputElement;
 
-  SelectElement seriesSelect = querySelector('#select-series'),
-      rendererSelect = querySelector('#select-renderer');
+  SelectElement seriesSelect = querySelector('#select-series') as SelectElement,
+      rendererSelect = querySelector('#select-renderer') as SelectElement;
 
   Element columnButtons = querySelector('#column-buttons'),
       chartsContainer = querySelector('.chart-wrapper');

@@ -171,8 +171,8 @@ class StackedBarChartRenderer extends CartesianRendererBase {
     };
 
     var buildPath = (d, int i, Element e, bool animate, int roundIdx) {
-      int position = animate ? getInitialBarPos(i) : getBarPos(d, i),
-          length = animate ? 0 : getBarLength(d, i),
+      int position = (animate ? getInitialBarPos(i) : getBarPos(d, i)) as int,
+          length = animate ? 0 : getBarLength(d, i) as int,
           radius = series.measures.elementAt(_reverseIdx(i)) == roundIdx
               ? RADIUS
               : 0;
@@ -274,7 +274,7 @@ class StackedBarChartRenderer extends CartesianRendererBase {
     rows.forEach((row) {
       num bar = null;
       series.measures.forEach((idx) {
-        num value = row.elementAt(idx);
+        num value = row.elementAt(idx) as num;
         if (value != null && value.isFinite) {
           if (bar == null) bar = 0;
           bar += value;

@@ -107,7 +107,7 @@ class TransposeTransformer extends ChangeNotifier
     }
 
     // Construct new ColumnSpaces base on the label column.
-    for (String label in columnLabels) {
+    for (String label in (columnLabels as Iterable<String>)) {
       columns.add(
           new ChartColumnSpec(type: type, label: label, formatter: formatter));
     }

@@ -21,8 +21,8 @@ dev_dependencies:
   http: any
   # unittest: any
   test: '^1.0.0'
-  build_runner: ^0.9.1+1
-  build_web_compilers: ^0.4.0+4
+  build_runner: ^1.6.1
+  build_web_compilers: ^2.1.4
 transformers:
 - $dart2js:
     minify: true

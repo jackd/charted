@@ -107,7 +107,7 @@ class BubbleChartRenderer extends CartesianRendererBase {
   @override
   Extent get extent {
     assert(series != null && area != null);
-    List<List<num>> rows = area.data.rows;
+    List<List<num>> rows = area.data.rows as List<List<num>>;
     num max = rows.first[series.measures.first], min = max;
 
     rows.forEach((row) {

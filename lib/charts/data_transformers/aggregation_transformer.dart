@@ -94,7 +94,7 @@ class AggregationTransformer extends ChangeNotifier
     rows.clear();
     var transformedRows = <List>[];
     for (String value
-        in _model.valuesForDimension(_dimensionColumnIndices[0])) {
+        in (_model.valuesForDimension(_dimensionColumnIndices[0]) as Iterable<String>)) {
       _generateAggregatedRow(transformedRows, [value]);
     }
     rows.addAll(transformedRows);
@@ -182,7 +182,7 @@ class AggregationTransformer extends ChangeNotifier
   void expandAll() {
     if (_model != null) {
       for (String value
-          in _model.valuesForDimension(_dimensionColumnIndices[0])) {
+          in (_model.valuesForDimension(_dimensionColumnIndices[0]) as Iterable<String>)) {
         _expandAll([value]);
       }
       _expandAllDimension = false;

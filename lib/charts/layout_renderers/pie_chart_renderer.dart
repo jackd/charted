@@ -68,10 +68,10 @@ class PieChartRenderer extends LayoutRendererBase {
             bRow = area.data.rows.elementAt(b);
         num aVal = (aRow == null || aRow.elementAt(measure) == null)
                 ? 0
-                : aRow.elementAt(measure),
+                : aRow.elementAt(measure) as num,
             bVal = (bRow == null || bRow.elementAt(measure) == null)
                 ? 0
-                : bRow.elementAt(measure);
+                : bRow.elementAt(measure) as num;
         return bVal.compareTo(aVal);
       });
     }

@@ -44,7 +44,7 @@ class AxisLabelTooltip implements ChartBehavior {
   }
 
   void _handleMouseOver(MouseEvent e) {
-    Element target = e.target;
+    Element target = e.target as Element;
     if (!target.dataset.containsKey('detail')) return;
     ensureTooltipRoot();
     ensureRenderAreaRect();
@@ -61,7 +61,7 @@ class AxisLabelTooltip implements ChartBehavior {
   }
 
   void _handleMouseOut(MouseEvent e) {
-    Element target = e.target;
+    Element target = e.target as Element;
     if (!target.dataset.containsKey('detail')) return;
     if (_tooltipRoot != null) {
       _tooltipRoot.style

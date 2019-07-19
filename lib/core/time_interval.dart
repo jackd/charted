@@ -25,7 +25,7 @@ class TimeInterval {
 
   DateTime round(dynamic date) {
     DateTime d0 = floor(date), d1 = offset(d0, 1);
-    int ms = date is int ? date : date.millisecondsSinceEpoch;
+    int ms = date is int ? date : date.millisecondsSinceEpoch as int;
     return (ms - d0.millisecondsSinceEpoch < d1.millisecondsSinceEpoch - ms)
         ? d0
         : d1;

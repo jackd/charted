@@ -92,9 +92,9 @@ class BarChartRenderer extends CartesianRendererBase {
 
     var getBarLength = (num d) {
       var scaledVal = measureScale.scale(d).round();
-      num ht = verticalBars
+      num ht = (verticalBars
           ? (d >= 0 ? scaled0 - scaledVal : scaledVal - scaled0)
-          : (d >= 0 ? scaledVal - scaled0 : scaled0 - scaledVal);
+          : (d >= 0 ? scaledVal - scaled0 : scaled0 - scaledVal)) as num;
       ht = ht - strokeWidth;
 
       // If bar would be scaled to 0 height but data is not 0, render bar
@@ -142,7 +142,7 @@ class BarChartRenderer extends CartesianRendererBase {
     };
 
     bar.enter.appendWithCallback((_d, i, e) {
-      num d = _d;
+      num d = _d as num;
       var rect = Namespace.createChildElement('path', e),
           measure = series.measures.elementAt(i),
           row = int.parse(e.dataset['row']),

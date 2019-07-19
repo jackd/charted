@@ -54,7 +54,7 @@ class SvgLine implements SvgShape {
   String path(data, int index, Element e) {
     assert(data is Iterable);
     var segments = new StringBuffer(), points = <math.Point<num>>[];
-    for (int i = 0, len = data.length; i < len; ++i) {
+    for (int i = 0, len = data.length as int; i < len; ++i) {
       final d = data.elementAt(i);
       if (isDefined(d, i, e)) {
         points.add(new math.Point(xValueAccessor(d, i), yValueAccessor(d, i)));

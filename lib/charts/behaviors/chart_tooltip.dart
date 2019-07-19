@@ -108,7 +108,7 @@ class ChartTooltip implements ChartBehavior {
       activeMeasures.sort();
     }
 
-    Iterable data = (showSelectedMeasure) ? activeMeasures : e.series.measures;
+    Iterable data = (showSelectedMeasure) ? activeMeasures : e.series.measures as Iterable;
 
     // Create the tooltip items base on the number of measures in the series.
     var items = _tooltipRoot.selectAll('.tooltip-item').data(data);
@@ -131,7 +131,7 @@ class ChartTooltip implements ChartBehavior {
       ..classed('tooltip-item-value')
       ..styleWithCallback('color', (d, i, c) => _area.theme.getColorForKey(d))
       ..textWithCallback((_d, i, c) {
-        int d = _d;
+        int d = _d as int;
         var formatter = _getFormatterForColumn(d),
             value = _area.data.rows.elementAt(e.row).elementAt(d);
         return (formatter != null) ? formatter(value) : value.toString();

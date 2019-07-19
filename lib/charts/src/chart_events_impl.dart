@@ -39,7 +39,7 @@ class DefaultChartEventImpl implements ChartEvent {
             ? area.theme.padding.end
             : area.theme.padding.start;
     if (source is MouseEvent) {
-      MouseEvent mouseSource = source;
+      MouseEvent mouseSource = source as MouseEvent;
       chartX = mouseSource.client.x - hostRect.left - left;
       chartY = mouseSource.client.y - hostRect.top - area.theme.padding.top;
     }

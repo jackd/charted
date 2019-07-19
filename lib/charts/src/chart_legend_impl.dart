@@ -116,7 +116,7 @@ class DefaultChartLegendImpl implements ChartLegend {
         isFirstRender = rows.length == 0;
 
     var enter = rows.enter.appendWithCallback((_d, i, e) {
-      ChartLegendItem d = _d;
+      ChartLegendItem d = _d as ChartLegendItem;
       var row = Namespace.createChildElement('div', e),
           color = Namespace.createChildElement('div', e)
             ..className = 'chart-legend-color',
@@ -161,7 +161,7 @@ class DefaultChartLegendImpl implements ChartLegend {
     // We have elements in the DOM that need updating.
     if (!isFirstRender) {
       rows.each((_d, i, Element e) {
-        ChartLegendItem d = _d;
+        ChartLegendItem d = _d as ChartLegendItem;
         var classes = e.classes;
         if (state != null) {
           if (d.index == state.preview) {
@@ -197,7 +197,7 @@ class DefaultChartLegendImpl implements ChartLegend {
           }
         })
         ..on('click', (_d, i, e) {
-          ChartLegendItem d = _d;
+          ChartLegendItem d = _d as ChartLegendItem;
           if (state.isSelected(d.index)) {
             state.unselect(d.index);
           } else {

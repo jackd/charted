@@ -115,8 +115,8 @@ class SvgAxis {
     // TODO(prsd): Order elements before updating ticks.
     ticks.each((d, i, e) {
       e.attributes['class'] = 'tick tick-$i';
-      Element line = e.firstChild;
-      Element text = e.lastChild;
+      Element line = e.firstChild as Element;
+      Element text = e.lastChild as Element;
       bool isRTLText = false; // FIXME(prsd)
 
       if (isHorizontal) {

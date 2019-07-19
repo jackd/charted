@@ -134,8 +134,8 @@ class _OrdinalScale<TDomain extends Comparable, TRange>
   static void _setRangeBands(_OrdinalScale scale, Iterable range,
       double padding, double outerPadding) {
     scale._reset = (_OrdinalScale s) {
-      num start = range.first,
-          stop = range.last,
+      num start = range.first as num,
+          stop = range.last as num,
           step = (stop - start - 2 * outerPadding) /
               (s.domain.length > 1 ? (s.domain.length - padding) : 1);
 

@@ -257,7 +257,7 @@ class AggregationModel {
   void _updateCachedEntities() {
     var keys = new List<String>.from(_entityCache.keys, growable: false);
     keys.forEach((String key) {
-      _AggregationItemImpl entity = _entityCache[key];
+      _AggregationItemImpl entity = _entityCache[key] as _AggregationItemImpl;
       if (entity == null) {
         _entityCache.remove(key);
       } else if (entity != null && entity.isValid) {
@@ -318,7 +318,7 @@ class AggregationModel {
 
       // Enumerate the dimension values and cache enumerated rows
       for (int di = 0; di < dimensionsCount; di++) {
-        Comparable dimensionVal = dimensionAccessor(item, _dimFields[di]);
+        Comparable dimensionVal = dimensionAccessor(item, _dimFields[di]) as Comparable;
         int dimensionValEnum = _dimToIntMap[di][dimensionVal];
         if (dimensionValEnum == null) {
           _dimToIntMap[di][dimensionVal] = dimensionValCount[di];
@@ -597,7 +597,7 @@ class AggregationModel {
 ///      "another", {"state": "good"}, "state"]
 List /* <String|Map<String, String>> */ _parseKey(
     String key, Map parsedKeysCache) {
-  List parts = parsedKeysCache == null ? null : parsedKeysCache[key];
+  List parts = parsedKeysCache == null ? null : parsedKeysCache[key] as List;
   if (parts == null && key != null) {
     parts = new List();
     if (key.contains(').')) {
@@ -626,7 +626,7 @@ List /* <String|Map<String, String>> */ _parseKey(
           listMatchingMap.clear();
           matchKeyVals = key.substring(start, cursor).split(';');
           matchKeyVals.forEach((value) {
-            List keyval = value.split('=');
+            List keyval = value.split('=') as List;
             if (keyval.length != 2) {
               throw new ArgumentError('Invalid field name: ${key}');
             }

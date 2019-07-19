@@ -194,7 +194,7 @@ class Hovercard implements ChartBehavior {
   }
 
   void _positionOnSingleDimensionCartesian(int column, int row) {
-    CartesianArea area = _area;
+    CartesianArea area = _area as CartesianArea;
     var dimensionCol = area.config.dimensions.first,
         dimensionScale = area.dimensionScales.first,
         measureScale = _getScaleForColumn(column),
@@ -212,21 +212,21 @@ class Hovercard implements ChartBehavior {
     var rowData = area.data.rows.elementAt(row), isNegative = false;
     num measurePosition = 0,
         dimensionPosition =
-            dimensionScale.scale(rowData.elementAt(dimensionCol) as Comparable) +
+            (dimensionScale.scale(rowData.elementAt(dimensionCol) as Comparable) as num) +
                 dimensionCenterOffset;
 
     if (_isMultiValue) {
       num max = SMALL_INT_MIN, min = SMALL_INT_MAX;
       area.config.series.forEach((ChartSeries series) {
-        CartesianRenderer renderer = series.renderer;
-        Extent<num> extent = renderer.extentForRow(rowData);
+        CartesianRenderer renderer = series.renderer as CartesianRenderer;
+        Extent<num> extent = renderer.extentForRow(rowData) as Extent<num>;
         if (extent.min < min) min = extent.min;
         if (extent.max > max) max = extent.max;
         measurePosition = measureScale.scale(max) as num;
         isNegative = max < 0.0;
       });
     } else {
-      num value = rowData.elementAt(column);
+      num value = rowData.elementAt(column) as num;
       if (value != null) {
         isNegative = value < 0.0;
         measurePosition = measureScale.scale(value) as num;
@@ -261,7 +261,7 @@ class Hovercard implements ChartBehavior {
 
     num top = 0, left = 0;
     for (int i = 0, len = placementOrder.length; i < len; ++i) {
-      String placement = placementOrder.elementAt(i);
+      String placement = placementOrder.elementAt(i) as String;
 
       // Place the popup based on the orientation.
       if (placement == 'orientation') {

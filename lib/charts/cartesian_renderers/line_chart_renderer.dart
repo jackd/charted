@@ -152,7 +152,7 @@ class LineChartRenderer extends CartesianRendererBase {
 
     linePoints
       ..each((_d, i, e) {
-        int d = _d;
+        int d = _d as int;
         var color = colorForColumn(d);
         e.attributes
           ..['r'] = '4'
@@ -176,9 +176,9 @@ class LineChartRenderer extends CartesianRendererBase {
 
     var yScale = area.measureScales(series).first;
     root.selectAll('.line-rdr-point').each((_d, i, e) {
-      int d = _d;
-      num x = _xPositions[row],
-          measureVal = area.data.rows.elementAt(row).elementAt(d);
+      int d = _d as int;
+      num x = _xPositions[row] as num,
+          measureVal = area.data.rows.elementAt(row).elementAt(d) as num;
       if (measureVal != null && measureVal.isFinite) {
         var color = colorForColumn(d), filter = filterForColumn(d);
         e.attributes
@@ -225,7 +225,7 @@ class LineChartRenderer extends CartesianRendererBase {
     double lastSmallerValue = 0.0;
     var chartX = x - area.layout.renderArea.x;
     for (var i = 0; i < _xPositions.length; i++) {
-      double pos = _xPositions[i].toDouble();
+      double pos = _xPositions[i].toDouble() as double;
       if (pos < chartX) {
         lastSmallerValue = pos;
       } else {

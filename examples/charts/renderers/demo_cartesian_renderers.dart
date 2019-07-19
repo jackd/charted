@@ -187,8 +187,8 @@ main() {
   draw_charts();
 
   Element chartsContainer = querySelector('.demos-container');
-  InputElement useRTLScriptCheckBox = querySelector('#rtl-use-script'),
-      useRTLLayoutCheckBox = querySelector('#rtl-use-layout');
+  InputElement useRTLScriptCheckBox = querySelector('#rtl-use-script') as InputElement,
+      useRTLLayoutCheckBox = querySelector('#rtl-use-layout') as InputElement;
 
   useRTLLayoutCheckBox.onChange.listen((_) {
     bool isRTL = useRTLLayoutCheckBox.checked;

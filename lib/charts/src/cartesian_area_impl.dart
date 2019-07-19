@@ -317,7 +317,7 @@ class DefaultCartesianAreaImpl implements CartesianArea {
           'translate(${layout.renderArea.x},${layout.renderArea.y})';
 
       selection.each((_s, _, Element group) {
-        ChartSeries s = _s;
+        ChartSeries s = _s as ChartSeries;
         _ChartSeriesInfo info = _seriesInfoCache[s];
         if (info == null) {
           info = _seriesInfoCache[s] = new _ChartSeriesInfo(this, s);
@@ -331,7 +331,7 @@ class DefaultCartesianAreaImpl implements CartesianArea {
       // A series that was rendered earlier isn't there anymore, remove it
       selection.exit
         ..each((_s, _, __) {
-          ChartSeries s = _s;
+          ChartSeries s = _s as ChartSeries;
           var info = _seriesInfoCache.remove(s);
           info?.dispose();
         })
@@ -505,7 +505,7 @@ class DefaultCartesianAreaImpl implements CartesianArea {
       // Update measure axis (add/remove/update)
       axisGroups.enter.append('svg:g');
       axisGroups.each((_axisId, index, group) {
-        String axisId = _axisId;
+        String axisId = _axisId as String;
         _getMeasureAxis(axisId).draw(group, _scope, preRender: preRender);
         group.attributes['class'] = 'measure-axis-group measure-${index}';
       });
@@ -520,7 +520,7 @@ class DefaultCartesianAreaImpl implements CartesianArea {
       // Update dimension axes (add/remove/update)
       dimAxisGroups.enter.append('svg:g');
       dimAxisGroups.each((_column, index, group) {
-        int column = _column;
+        int column = _column as int;
         _getDimensionAxis(column).draw(group, _scope, preRender: preRender);
         group.attributes['class'] = 'dimension-axis-group dim-${index}';
       });

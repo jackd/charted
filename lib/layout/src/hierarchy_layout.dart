@@ -35,7 +35,7 @@ abstract class HierarchyLayout<T extends HierarchyNode> {
     }
 
     for (var i = 0; i < rows.length; i++) {
-      int parentRow = rows[i][parentColumn];
+      int parentRow = rows[i][parentColumn] as int;
       if (parentRow == ROOT_ROW_INDEX) continue;
       var currentNode = nodeList[i];
       var parentNode = nodeList[parentRow];

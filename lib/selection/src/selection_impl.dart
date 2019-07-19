@@ -381,7 +381,7 @@ class _SelectionImpl implements Selection {
         for (int vi = 0, len = valuesLength; vi < len; ++vi) {
           final v = vals.elementAt(vi);
           var keyValue = keyFn(v);
-          Element e = elementsByKey[keyValue];
+          Element e = elementsByKey[keyValue] as Element;
           if (e != null) {
             update[vi] = e;
             scope.associate(e, v);

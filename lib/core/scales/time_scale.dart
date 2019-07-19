@@ -105,8 +105,8 @@ class TimeScale extends BaseLinearScale {
   List<num> niceInterval(int ticksCount) {
     var extent = ScaleUtils.extent(domain);
     var method = _getTickMethod(extent, ticksCount);
-    TimeInterval interval = method[0];
-    int skip = method[1];
+    TimeInterval interval = method[0] as TimeInterval;
+    int skip = method[1] as int;
 
     bool skipped(DateTime date) {
       var seconds = date.millisecondsSinceEpoch;
@@ -155,8 +155,8 @@ class TimeScale extends BaseLinearScale {
   List<DateTime> ticksInterval(int ticksCount) {
     var extent = ScaleUtils.extent(domain);
     var method = _getTickMethod(extent, ticksCount);
-    TimeInterval interval = method[0];
-    int skip = method[1];
+    TimeInterval interval = method[0] as TimeInterval;
+    int skip = method[1] as int;
     return interval
         .range(extent.min, extent.max + 1, skip < 1 ? 1 : skip)
         .toList();
